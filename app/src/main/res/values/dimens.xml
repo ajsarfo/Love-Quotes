@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_icon_size">20dp</dimen>
+    <dimen name="card_elevation">16dp</dimen>
+    <dimen name="card_layout_margin">8dp</dimen>
+    <dimen name="card_icon_margin_top">16dp</dimen>
+
+    <dimen name="splash_image_size">120dp</dimen>
+
+    <dimen name="rate_app_menu_item_size">32dp</dimen>
+</resources>

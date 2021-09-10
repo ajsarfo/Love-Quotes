@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="binding"
+            type="com.sarftec.lovequotes.presentation.binding.ListItemBinding" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_layout_margin"
+        android:layout_marginLeft="@dimen/card_layout_margin"
+        android:layout_marginRight="@dimen/card_layout_margin"
+        tools:background="@color/activity_background">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="@dimen/card_elevation"
+            app:cardBackgroundColor="?attr/surfaceColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:fontFamily="@font/raleway_medium"
+                    android:gravity="start|center_vertical"
+                    android:text="@{binding.quote.message}"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/onSurfaceColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Every day with you is like a day spent in heaven. You are lke a genie, granting all my wishes. I love you not only because of that, I love you for who you are, whole package. kj;lkj;lkj;lkj;lkj;lkj;lkjiijijkjlkj;lkj;lkjqqqkqlkqjlqkjlkjlkj;lkjijpoipiopoipoipoi[poi[poi[poi[poi[poi[poi[oi[oi[poi[poi[poi[poi[poi[poi[poi[po[poi[poi[poi[poi[poi[poi" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="@dimen/list_icon_size"
+                            android:layout_height="@dimen/list_icon_size"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:onClick="@{() -> binding.onFavorite()}"
+                            app:image="@{binding.favorite}"
+                            app:tint="#C2185B"
+                            tools:srcCompat="@drawable/favorite_unchecked" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="@dimen/list_icon_size"
+                            android:layout_height="@dimen/list_icon_size"
+                            android:layout_marginTop="@dimen/card_icon_margin_top"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:onClick="@{() -> binding.onCopy()}"
+                            app:srcCompat="@drawable/copy"
+                            app:tint="#1976D2" />
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="@dimen/list_icon_size"
+                            android:layout_height="@dimen/list_icon_size"
+                            android:layout_marginTop="@dimen/card_icon_margin_top"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:onClick="@{() -> binding.onShare()}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:srcCompat="@drawable/share"
+                            app:tint="#689F38" />
+
+                        <ImageView
+                            android:layout_width="@dimen/list_icon_size"
+                            android:layout_height="@dimen/list_icon_size"
+                            android:layout_marginTop="@dimen/card_icon_margin_top"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center"
+                            android:onClick="@{() -> binding.onSpeak()}"
+                            app:srcCompat="@drawable/speaker"
+                            app:tint="#7B1FA2" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

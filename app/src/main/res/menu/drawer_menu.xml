@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/love_quote"
+            android:checked="true"
+            android:title="@string/app_name" />
+
+        <item android:id="@+id/favorite_qutoes"
+            android:title="@string/favorite_quotes"/>
+    </group>
+
+    <item android:title="@string/options">
+        <menu>
+            <item android:id="@+id/app_mode"
+                android:title="@string/night_mode"/>
+
+            <item android:id="@+id/rate_app"
+                android:title="@string/rate_app"/>
+
+            <item android:id="@+id/more_apps"
+                android:title="@string/more_apps"/>
+        </menu>
+    </item>
+</menu>

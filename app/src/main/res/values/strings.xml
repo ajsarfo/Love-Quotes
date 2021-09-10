@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Love Quotes</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+    <string name="favorite_quotes">Favorite Quotes</string>
+    <string name="options">Options</string>
+    <string name="rate_app">Rate App</string>
+    <string name="share_app">Share App</string>
+    <string name="more_apps">More Apps</string>
+    <string name="rate_dialog_header">Enjoying Love Quotes?</string>
+    <string name="ratings_message">Hi. We would love to know if this app was really helpful. Kindly leave a review if you love the app or feel we could be doing better</string>
+    <string name="ok">OK</string>
+    <string name="next_time">Next time</string>
+    <string name="night_mode">To Dark Mode</string>
+    <string name="light_mode">To Light Mode</string>
+    <string name="appodeal_app_id">3a3e86c0ccb6cdc3194e905760dfcf01c8f1eaf3227350e6</string>
+</resources>

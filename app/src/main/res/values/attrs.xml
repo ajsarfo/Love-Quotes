@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+    <attr name="onSurfaceColor"
+        format="color" />
+
+    <attr name="surfaceColor"
+        format="color"/>
+
+    <attr name="appBackgroundColor"
+        format="color"/>
+
+    <attr name="main_list_text_color"
+        format="color"/>
+</resources>
