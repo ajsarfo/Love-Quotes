@@ -6,8 +6,8 @@ import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.commit
-import com.appodeal.ads.Appodeal
 import com.sarftec.lovequotes.R
+import com.sarftec.lovequotes.application.manager.BannerManager
 import com.sarftec.lovequotes.databinding.ActivityListBinding
 import com.sarftec.lovequotes.presentation.fragment.ListFragment
 import com.sarftec.lovequotes.presentation.listener.ListActivityListener
@@ -25,10 +25,20 @@ class ListActivity : BaseActivity(), ListActivityListener {
 
     private val viewModel by viewModels<ListViewModel>()
 
+    override fun canShowInterstitial(): Boolean {
+        return false
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setSupportActionBar(binding.listToolbar)
+        /*************** Admob Configuration ********************/
+        BannerManager(this, adRequestBuilder).attachBannerAd(
+            getString(R.string.admob_banner_list),
+            binding.mainBanner
+        )
+        /**********************************************************/
         savedInstanceState ?: kotlin.run {
             viewModel.setBundle(intent.getBundleExtra(ACTIVITY_BUNDLE))
         }
@@ -39,11 +49,6 @@ class ListActivity : BaseActivity(), ListActivityListener {
             replace(R.id.fragment_container, ListFragment())
             setReorderingAllowed(true)
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Appodeal.show(this, Appodeal.BANNER_VIEW)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

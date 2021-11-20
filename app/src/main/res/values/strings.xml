@@ -13,5 +13,22 @@
     <string name="next_time">Next time</string>
     <string name="night_mode">To Dark Mode</string>
     <string name="light_mode">To Light Mode</string>
-    <string name="appodeal_app_id">3a3e86c0ccb6cdc3194e905760dfcf01c8f1eaf3227350e6</string>
+
+
+    <string name="admob_test_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_test_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+
+
+   <!--
+    <string name="admob_banner_main">@string/admob_test_banner_id</string>
+    <string name="admob_banner_list">@string/admob_test_banner_id</string>
+
+    <string name="admob_interstitial_id">@string/admob_test_interstitial_id</string>
+   -->
+
+
+     <string name="admob_banner_main">ca-app-pub-6150813452529727/9821720013</string>
+     <string name="admob_banner_list">ca-app-pub-6150813452529727/8289146495</string>
+
+     <string name="admob_interstitial_id">ca-app-pub-6150813452529727/9630148322</string>
 </resources>

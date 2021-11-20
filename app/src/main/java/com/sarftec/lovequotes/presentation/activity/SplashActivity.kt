@@ -26,6 +26,10 @@ class SplashActivity : BaseActivity() {
         )
     }
 
+    override fun canShowInterstitial(): Boolean {
+        return false
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

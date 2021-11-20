@@ -4,8 +4,6 @@ import android.content.Context
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.sarftec.lovequotes.application.file.vibrate
-import com.sarftec.lovequotes.application.manager.InterstitialManager
-import com.sarftec.lovequotes.application.manager.NetworkManager
 import com.sarftec.lovequotes.presentation.adapter.MainItemAdapter
 import com.sarftec.lovequotes.presentation.listener.MainActivityListener
 import com.sarftec.lovequotes.presentation.viewmodel.MainViewModel
@@ -19,18 +17,8 @@ class MainFragment : BaseListFragment() {
     private val mainItemAdapter by lazy {
         MainItemAdapter {
             requireContext().vibrate()
-           interstitialManager.showAd {
-               activityListener.navigate(it)
-           }
+            activityListener.navigate(it)
         }
-    }
-
-    private val interstitialManager by lazy {
-        InterstitialManager(
-            requireActivity(),
-            NetworkManager(requireContext()),
-            listOf(1, 3, 4, 3)
-        )
     }
 
     override fun onAttach(context: Context) {

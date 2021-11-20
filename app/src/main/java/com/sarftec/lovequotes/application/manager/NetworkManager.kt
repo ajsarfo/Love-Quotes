@@ -7,9 +7,13 @@ import android.net.NetworkRequest
 import android.os.Build
 import android.util.Range
 import androidx.annotation.RequiresApi
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class NetworkManager constructor(
-    private val context: Context
+@Singleton
+class NetworkManager @Inject constructor(
+    @ApplicationContext private val context: Context
 ) {
 
     init {

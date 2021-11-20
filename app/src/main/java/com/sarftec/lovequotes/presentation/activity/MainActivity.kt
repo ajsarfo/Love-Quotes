@@ -3,6 +3,7 @@ package com.sarftec.lovequotes.presentation.activity
 import android.app.UiModeManager
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -17,10 +18,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.ListFragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
-import com.appodeal.ads.Appodeal
-import com.appodeal.ads.utils.Log
 import com.sarftec.lovequotes.R
 import com.sarftec.lovequotes.application.file.*
+import com.sarftec.lovequotes.application.manager.AdCountManager
+import com.sarftec.lovequotes.application.manager.BannerManager
 import com.sarftec.lovequotes.application.model.Category
 import com.sarftec.lovequotes.databinding.ActivityMainBinding
 import com.sarftec.lovequotes.databinding.LayoutRatingsDialogBinding
@@ -74,16 +75,21 @@ class MainActivity : BaseActivity(), MainActivityListener {
 
     private var fragmentId: Int = MAIN_FRAGMENT
 
+    override fun createAdCounterManager(): AdCountManager {
+        return AdCountManager(listOf(1, 3, 2, 3))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        //Setting Appodeal configurations
-        Appodeal.setBannerViewId(R.id.main_banner)
-        Appodeal.initialize(
-            this,
-            getString(R.string.appodeal_app_id),
-            Appodeal.BANNER_VIEW or Appodeal.INTERSTITIAL
+        /*************** Admob Configuration ********************/
+        Log.v("TAG", "Attaching banner manager from MAIN")
+        BannerManager(this, adRequestBuilder).attachBannerAd(
+            getString(R.string.admob_banner_main),
+            binding.mainBanner
         )
+        /**********************************************************/
+
         savedInstanceState?.run {
             setFragment(
                 if (getInt(CURRENT_FRAGMENT) == MAIN_FRAGMENT) MainFragment()
@@ -97,11 +103,6 @@ class MainActivity : BaseActivity(), MainActivityListener {
         lifecycleScope.launchWhenCreated {
             ratingsManager.init()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Appodeal.show(this, Appodeal.BANNER_VIEW)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -134,7 +135,9 @@ class MainActivity : BaseActivity(), MainActivityListener {
         val bundle = Bundle().apply {
             putInt(CATEGORY_ID, category.id)
         }
-        navigateTo(ListActivity::class.java, bundle = bundle)
+        interstitialManager?.showAd {
+            navigateTo(ListActivity::class.java, bundle = bundle)
+        }
     }
 
     private fun setFragment(fragment: Fragment, add: Boolean = false) {

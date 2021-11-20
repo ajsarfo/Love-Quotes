@@ -20,9 +20,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url "https://artifactory.appodeal.com/appodeal"
-        }
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
